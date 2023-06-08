@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import Auth0Provider from "next-auth/providers/auth0";
+import SpotifyProvider from "next-auth/providers/spotify";
 
 const handler = NextAuth({
 	// Configure one or more authentication providers
@@ -18,6 +19,10 @@ const handler = NextAuth({
 			clientId: process.env.AUTH0_CLIENT_ID,
 			clientSecret: process.env.AUTH0_CLIENT_SECRET,
 			issuer: process.env.AUTH0_ISSUER,
+		}),
+		SpotifyProvider({
+			clientId: process.env.SPOTIFY_CLIENT_ID,
+			clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
 		}),
 		// ...add more providers here
 	],

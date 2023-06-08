@@ -67,7 +67,7 @@ function Nav() {
 					{status === "authenticated" ? (
 						<div className="flex relative">
 							<Image
-								src={session?.user.image}
+								src={session?.user.image || "/assets/icons/user-icon.png"}
 								alt="profile"
 								className="rounded-full"
 								width={40}
