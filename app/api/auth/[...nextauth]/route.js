@@ -15,11 +15,6 @@ const handler = NextAuth({
 			clientId: process.env.GITHUB_ID,
 			clientSecret: process.env.GITHUB_SECRET,
 		}),
-		Auth0Provider({
-			clientId: process.env.AUTH0_CLIENT_ID,
-			clientSecret: process.env.AUTH0_CLIENT_SECRET,
-			issuer: process.env.AUTH0_ISSUER,
-		}),
 		SpotifyProvider({
 			clientId: process.env.SPOTIFY_CLIENT_ID,
 			clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
