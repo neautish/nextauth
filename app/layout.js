@@ -10,19 +10,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-	// const locale = useLocale();
-
-	// Show a 404 error if the user requests an unknown locale
-	// if (params.locale !== locale) {
-	// 	notFound();
-	// }
-
 	return (
 		<html lang="en">
 			<body className="max-w-6xl mx-auto px-2">
 				<Provider>
 					<Nav />
-					<main>{children}</main>
+					<main className="min-h-[250px] p-5 bg-green-50 rounded-lg">{children}</main>
 					<Footer />
 				</Provider>
 			</body>

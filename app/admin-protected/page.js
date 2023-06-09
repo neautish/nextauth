@@ -1,7 +1,7 @@
-import React from "react";
+import Admin from "@components/Admin";
 
 function AdminProtectedPage() {
-	return <div>AdminProtectedPage</div>;
+	return <Admin />;
 }
 
 export default AdminProtectedPage;

@@ -18,3 +18,7 @@
 .menu_link {
 	@apply text-gray-500 font-semibold hover:text-blue-500;
 }
+
+.active_link {
+	@apply font-semibold text-blue-500;
+}
