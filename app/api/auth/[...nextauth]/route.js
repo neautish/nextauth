@@ -6,7 +6,7 @@ import SpotifyProvider from "next-auth/providers/spotify";
 import { connectToDB } from "@utils/database";
 import User from "@models/user";
 
-const handler = NextAuth({
+export const authOptions = {
 	// Configure one or more authentication providers
 	providers: [
 		GoogleProvider({
@@ -67,6 +67,8 @@ const handler = NextAuth({
 			return session;
 		},
 	},
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

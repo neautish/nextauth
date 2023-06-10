@@ -8,17 +8,21 @@ function Admin() {
 	return (
 		<section>
 			{status === "authenticated" && session?.profile.role === "user" ? (
-				<>
-					<p>You don't have permission to access this page.</p>
-				</>
+				<div className="flex justify-center mt-5">
+					<p className="text-xl font-semibold">You are not an admin. You don't have permission to access this page.</p>
+				</div>
 			) : status === "authenticated" && session?.profile.role === "admin" ? (
-				<>
-					<p>You can see the content</p>
-				</>
+				<div className="flex justify-center mt-5">
+					<p className="text-xl font-semibold">You can see the content of this page, because you are an admin</p>
+				</div>
+			) : status === "unauthenticated" ? (
+				<div className="flex justify-center mt-5">
+					<p className="text-xl font-semibold">You should sign in as an admin to see the content of this page</p>
+				</div>
 			) : (
-				<>
-					<p>You are not authenticated</p>
-				</>
+				<div className="flex justify-center mt-5">
+					<p className="text-xl text-slate-500 font-semibold">Loading...</p>
+				</div>
 			)}
 		</section>
 	);

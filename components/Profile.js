@@ -15,11 +15,7 @@ function Profile() {
 
 	return (
 		<section>
-			{status === "unauthenticated" ? (
-				<div>
-					<p>Your are not signed in. Sign In to see your profile.</p>
-				</div>
-			) : (
+			{status === "authenticated" ? (
 				<div>
 					<div className="flex items-start justify-center gap-3 mb-20 mt-5">
 						<div className="flex flex-col text-center">
@@ -43,6 +39,14 @@ function Profile() {
 							))}
 						</div>
 					</div>
+				</div>
+			) : status === "unauthenticated" ? (
+				<div className="flex justify-center mt-5">
+					<p className="text-xl font-semibold">You are not signed in. Sign in to see your profile</p>
+				</div>
+			) : (
+				<div className="flex justify-center mt-5">
+					<p className="text-xl text-slate-500 font-semibold">Loading...</p>
 				</div>
 			)}
 		</section>

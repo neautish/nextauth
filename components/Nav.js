@@ -14,15 +14,27 @@ function Nav() {
 	const [toggleDropdown, setToggleDropdown] = useState(false);
 	const [providers, setProviders] = useState(null);
 
+	// Close dropdown on outside click
+	useEffect(() => {
+		const closeDropdown = (event) => {
+			if (!event.target.className.includes("avatar")) {
+				setToggleDropdown(false);
+			}
+		};
+		window.addEventListener("click", closeDropdown);
+
+		return () => {
+			window.removeEventListener("click", closeDropdown);
+		};
+	}, []);
+
+	// Get providers
 	useEffect(() => {
 		(async () => {
 			const providers = await getProviders();
 			setProviders(providers);
 		})();
 	}, []);
-
-	console.log(status);
-	console.log(session);
 
 	return (
 		<header className="w-full mb-4">
@@ -68,7 +80,7 @@ function Nav() {
 							<Image
 								src={session?.user.image || "/assets/icons/user-icon.png"}
 								alt="profile"
-								className="rounded-full"
+								className="rounded-full avatar"
 								width={40}
 								height={40}
 								onClick={() => setToggleDropdown((prev) => !prev)}
